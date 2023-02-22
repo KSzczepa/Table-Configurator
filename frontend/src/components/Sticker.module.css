@@ -1,0 +1,17 @@
+.header {
+    /* background-color: #218768; */
+    background-image: linear-gradient(to bottom right, #0499eb, #4ed696);
+    color: #303038;
+    height: 4em;
+    position: sticky;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    font-size: 24px;
+}
+
+.header h1 {
+    margin: 0;
+    padding-top: 1rem;
+    position: inherit;
+    margin-left: 5rem;
+}
