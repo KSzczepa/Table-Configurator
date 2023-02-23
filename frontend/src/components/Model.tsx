@@ -2,6 +2,8 @@
 import * as THREE from 'three';
 import { useEffect, useState } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
 
     //renderer
     const renderer = new THREE.WebGLRenderer();
@@ -14,6 +16,9 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
     //camera
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    //orbit control
+    const controls = new OrbitControls( camera, renderer.domElement );
 
 
 const Model = () => {
@@ -129,11 +134,11 @@ const Model = () => {
     function animate() {
         requestAnimationFrame(animate);
 
-        if (isModelLoaded === true && tableGeometry != undefined && plantGeometry != undefined) {
-            tableGeometry.rotation.y += 0.01;            
-            plantGeometry.rotation.y += 0.01;            
-        }
-
+        // if (isModelLoaded === true && tableGeometry != undefined && plantGeometry != undefined) {
+        //     tableGeometry.rotation.y += 0.01;            
+        //     plantGeometry.rotation.y += 0.01;            
+        // }
+        controls.update();
 
         renderer.render(scene, camera);
     };
