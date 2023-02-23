@@ -3,8 +3,6 @@ import * as THREE from 'three';
 import { useEffect, useState } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-// const Model:React.FC<{onChange: () => void}> = (props) => {
-
     //renderer
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -39,8 +37,6 @@ const Model = () => {
             content.matrixAutoUpdate = true;
             content.updateMatrix();
             content.name = 'table';
-            // content.id = 1;
-            // setModelHandler(content);
 
             scene.add(gltf.scene);
             setIsModelLoadedHandler(true);
@@ -79,14 +75,12 @@ const Model = () => {
     }, [])
 
 
-    // const tableGeometry = scene.getObjectByName('table');
 
     function animate() {
         requestAnimationFrame(animate);
 
         if (isModelLoaded === true && tableGeometry != undefined) {
-            tableGeometry.rotation.y += 0.01;
-            // tableGeometry.rotation.y += 0.01;            
+            tableGeometry.rotation.y += 0.01;            
         }
 
 
