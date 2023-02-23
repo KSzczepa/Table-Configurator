@@ -47,7 +47,12 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "@parcel/config-default": "^2.8.3",
+    "nodemon": "^2.0.20",
+    "parcel-reporter-static-files-copy": "^1.5.0"
+  },
+  "staticFiles": {
+    "staticOutPath": "assets"
   },
   "author": "Klaudia Szczepańska",
   "license": "ISC"
