@@ -1,0 +1,10 @@
+.box {
+    border-style: solid;
+    width: calc(50vw);
+    height: calc(20vh);
+    position: relative;
+    margin-top: calc(50vh + 4rem);
+    margin-left: 10rem;
+    border-color: #42445A;
+    border-width: 1px;
+}
