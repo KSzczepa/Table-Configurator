@@ -6,6 +6,8 @@ import Box from './components/Box';
 
 import { Canvas } from "@react-three/fiber";
 import Cylinder3d from "./components/Cylinder";
+import ItemHandlerBox from './components/ItemHandlerBox';
+import Options from './components/Options';
 
 function App() {
 	
@@ -14,9 +16,13 @@ function App() {
 	return (
 		<div className="App">
 			<Sticker />
-			<Box>
-				<Model />
-			</Box>
+			{/* <div className='grid'> */}
+				<Box>
+					<Model />
+				</Box>
+				<ItemHandlerBox />
+				<Options />
+			{/* </div> */}
 			
 				
 			{/* <section className='App-header'>
