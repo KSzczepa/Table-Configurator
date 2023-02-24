@@ -7,8 +7,9 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
     //renderer
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    // renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth/2, window.innerHeight/2);
+    // document.body.appendChild(renderer.domElement);
 
     //scene
     const scene = new THREE.Scene();
@@ -36,8 +37,9 @@ const Model = () => {
         loader.load('./models/wooden_table/wooden_table_02_4k.gltf', function (gltf) {
 
             const content = gltf.scene;
-            content.scale.set(2, 2, 2);
+            content.scale.set(3.5, 3.5, 3.5);
             content.rotation.x = 0.5;//Math.PI/12;
+            content.translateY(-2);
 
             content.matrixAutoUpdate = true;
             content.updateMatrix();
@@ -50,11 +52,12 @@ const Model = () => {
             loader.load('./models/plant/potted_plant_02_4k.gltf', function (gltf) {
 
                 const content = gltf.scene;
-                content.scale.set(1, 1, 1);
+                content.scale.set(1.7, 1.7, 1.7);
                 content.position.y = 1.8;
                 content.rotation.x = 0.5;//Math.PI/12;
                 // content.rotation.z = 0.1;
                 content.translateZ(1);
+                content.translateY(-0.8);
     
                 content.matrixAutoUpdate = true;
                 content.updateMatrix();
@@ -104,13 +107,13 @@ const Model = () => {
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
         //Create a sphere that cast shadows (but does not receive them)
-        const sphereGeometry = new THREE.SphereGeometry( 4, 50, 50 ); //5,32,32
-        const sphereMaterial = new THREE.MeshStandardMaterial( { color: 0x0000ff, wireframe: false } ); //ff0000
-        const sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
-        sphere.castShadow = true; //default is false
-        sphere.receiveShadow = false; //default
-        sphere.position.set(-10, 10, 0);
-        scene.add( sphere );
+        // const sphereGeometry = new THREE.SphereGeometry( 4, 50, 50 ); //5,32,32
+        // const sphereMaterial = new THREE.MeshStandardMaterial( { color: 0xffffff, wireframe: true } ); //ff0000
+        // const sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
+        // sphere.castShadow = true; //default is false
+        // sphere.receiveShadow = false; //default
+        // sphere.position.set(-10, 10, 0);
+        // scene.add( sphere );
 
         const helper = new THREE.CameraHelper( light.shadow.camera );
         // scene.add( helper );
@@ -124,8 +127,16 @@ const Model = () => {
         //     renderer.render(scene, camera);
         // }
 
+        const box = document.getElementsByClassName("Box_configView__IKlTh");
+        console.log(box);
+        console.log(box.item(0));
+        const boxScene: Element | null = box.item(0);
+        console.log('type: ', typeof(boxScene));
+        if (box.item(0) != null) {
+            boxScene?.appendChild(renderer.domElement);
+        }
 
-        animate();
+        // animate();
     }
     }, [])
 
