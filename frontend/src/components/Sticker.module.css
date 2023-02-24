@@ -1,7 +1,12 @@
 .header {
     /* background-color: #218768; */
-    background-image: linear-gradient(to bottom right, #0499eb, #4ed696);
-    color: #303038;
+    /* background-image: linear-gradient(to bottom right, #0499eb, #4ed696); */
+    /* background-image: linear-gradient(to bottom right, #0482eb, #d64e69b8); */
+    
+   background-color: rgba(89, 131, 252, 1);
+   background-image: linear-gradient(90deg, rgba(89, 131, 252, 1) 0%, rgba(41, 53, 86, 1) 100%);
+    /* background-color: brown; */
+    /* color: #303038; */
     height: 4em;
     position: sticky;
     font-family: 'Montserrat', sans-serif;
