@@ -3,11 +3,13 @@ import './App.css';
 import Sticker from './components/Sticker';
 import Model from './components/Model';
 import Box from './components/Box';
+import ItemHandlerBox from './components/ItemHandlerBox';
+import Options from './components/Options';
 
 import { Canvas } from "@react-three/fiber";
 import Cylinder3d from "./components/Cylinder";
-import ItemHandlerBox from './components/ItemHandlerBox';
-import Options from './components/Options';
+
+
 
 function App() {
 	
@@ -16,13 +18,12 @@ function App() {
 	return (
 		<div className="App">
 			<Sticker />
-			{/* <div className='grid'> */}
-				<Box>
-					<Model />
-				</Box>
-				<ItemHandlerBox />
-				<Options />
-			{/* </div> */}
+		
+			<Box>
+				<Model />
+			</Box>
+			<ItemHandlerBox />
+			<Options />
 			
 				
 			{/* <section className='App-header'>
