@@ -128,10 +128,7 @@ const Model = () => {
 
 
             const box = document.getElementsByClassName("Box_configView__IKlTh");
-            console.log(box);
-            console.log(box.item(0));
             const boxScene: Element | null = box.item(0);
-            console.log('type: ', typeof (boxScene));
             if (box.item(0) != null) {
                 boxScene?.appendChild(renderer.domElement);
             }
@@ -151,7 +148,7 @@ const Model = () => {
 
 
     if (isModelLoaded === true) {
-
+        console.log('model loaded');
         // Texture.LoadTexture(scene, tableTextures.orange);
 
         animate();

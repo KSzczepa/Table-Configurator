@@ -1,6 +1,6 @@
 
 import classes from './Box.module.css';
-import React, { DOMElement } from 'react';
+import React from 'react';
 
 const Box: React.FC<{children: JSX.Element}> = (props) => {
     const box = <div className={classes.configView} id="box">
