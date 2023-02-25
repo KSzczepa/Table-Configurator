@@ -1,0 +1,25 @@
+.grid {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.texture {
+    width: 4rem;
+    height: 4rem;
+    /* float: left; */
+    padding: 10px;
+    margin: 1rem;
+    border-style: none;
+    pointer-events: auto;
+}
+
+
+.texture:hover {
+    border: none;
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: #eee;
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+    }

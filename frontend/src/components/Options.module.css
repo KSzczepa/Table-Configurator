@@ -3,8 +3,16 @@
     width: calc(50vw);
     height: calc(20vh);
     position: relative;
-    margin-top: calc(50vh + 4rem);
-    margin-left: 10rem;
+    bottom: calc(50vw *0.2);
+    /* bottom: 9.2em; */
+    /* margin-top: calc(50vh + 4rem); */
+    margin-left: 8rem;
     border-color: #42445A;
     border-width: 1px;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 0;
+    flex-direction: row;
+    /* float: left; */
+    justify-content: center;
 }
