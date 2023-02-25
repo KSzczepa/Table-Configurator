@@ -6,28 +6,27 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import Texture from '../assets/Textures';
 
+import {modelScene} from '../assets/Scene';
+
+
 //renderer
 const renderer = new THREE.WebGLRenderer();
-// renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
-// document.body.appendChild(renderer.domElement);
-
-//scene
-const scene = new THREE.Scene();
-scene.background = new THREE.Color('#fefefe');
 
 //camera
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 //orbit control
 const controls = new OrbitControls(camera, renderer.domElement);
-// camera.position.set( -0.904, 0.809, 1.100 );
 const div = 0.9;
 camera.position.set(-0.904 / div, 0.809 / div, 1.100 / div);
 camera.rotation.set((-20.42 * Math.PI / 180), (-37.61 * Math.PI / 180), (-12.8 * Math.PI / 180));
 
 
 const Model = () => {
+    
+    const scene = modelScene;
+    scene.background = new THREE.Color('#fefefe');
 
     const [isModelLoaded, setIsModelLoaded] = useState(false);
 
@@ -47,7 +46,7 @@ const Model = () => {
         brown: 'brown',
         white: 'white',
         grey: 'grey',
-        orange: 'orange', 
+        orange: 'orange',
         purple: 'purple'
     };
 
@@ -66,6 +65,14 @@ const Model = () => {
                 content.name = 'table';
                 content.receiveShadow = true;
 
+                const brownTexture = new THREE.TextureLoader().load( "./models/wooden_table/textures/wooden_table_02_diff_4k.jpg")
+                
+                content.traverse( function( child ) {
+                    if ( child instanceof THREE.Mesh ) {
+                        child.material.map = brownTexture;
+                        child.material.map.needsUpdate = true;
+                    }
+                } );
 
                 scene.add(gltf.scene);
 
@@ -145,7 +152,7 @@ const Model = () => {
 
     if (isModelLoaded === true) {
 
-        Texture.LoadTexture(scene, tableTextures.orange);
+        // Texture.LoadTexture(scene, tableTextures.orange);
 
         animate();
     }
