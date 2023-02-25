@@ -1,13 +1,13 @@
 
 import './App.css';
-import Sticker from './components/Sticker';
+import Sticker from './components/Sticker/Sticker';
 import Model from './components/Model';
-import Box from './components/Box';
-import ItemHandlerBox from './components/ItemHandlerBox';
-import Options from './components/Options';
+import Box from './components/box/Box';
+import ItemHandlerBox from './components/descriptionPart/ItemHandlerBox';
+import Options from './components/textureOptions/Options';
 
 import { Canvas } from "@react-three/fiber";
-import Cylinder3d from "./components/Cylinder";
+import Cylinder3d from "./components/unnecessary/Cylinder";
 
 
 
