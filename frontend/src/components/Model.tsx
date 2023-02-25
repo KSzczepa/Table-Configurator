@@ -3,6 +3,8 @@ import * as THREE from 'three';
 import { useEffect, useState } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { Vector3 } from '@react-three/fiber';
+
 
 
     //renderer
@@ -16,10 +18,14 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
     scene.background = new THREE.Color('#fefefe');
 
     //camera
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
 
     //orbit control
     const controls = new OrbitControls( camera, renderer.domElement );
+    // camera.position.set( -0.904, 0.809, 1.100 );
+    const div = 0.9;
+    camera.position.set( -0.904/div, 0.809/div, 1.100/div );
+    camera.rotation.set((-20.42 * Math.PI / 180), (-37.61 * Math.PI / 180), (-12.8 * Math.PI / 180));
 
 
 const Model = () => {
@@ -37,9 +43,9 @@ const Model = () => {
         loader.load('./models/wooden_table/wooden_table_02_4k.gltf', function (gltf) {
 
             const content = gltf.scene;
-            content.scale.set(3.5, 3.5, 3.5);
-            content.rotation.x = 0.5;//Math.PI/12;
-            content.translateY(-2);
+            content.scale.set(1,1,1);
+            // content.rotation.x = 0.5;
+            content.translateY(-0.4);
 
             content.matrixAutoUpdate = true;
             content.updateMatrix();
@@ -52,12 +58,11 @@ const Model = () => {
             loader.load('./models/plant/potted_plant_02_4k.gltf', function (gltf) {
 
                 const content = gltf.scene;
-                content.scale.set(1.7, 1.7, 1.7);
-                content.position.y = 1.8;
-                content.rotation.x = 0.5;//Math.PI/12;
-                // content.rotation.z = 0.1;
-                content.translateZ(1);
-                content.translateY(-0.8);
+                content.scale.set(0.4, 0.4, 0.4);
+                // content.position.y = 1.8;
+                // content.rotation.x = 0.5;
+                // content.translateZ(1);
+                content.translateY(0.4);
     
                 content.matrixAutoUpdate = true;
                 content.updateMatrix();
@@ -81,11 +86,11 @@ const Model = () => {
         
 
         //Light
-        var light = new THREE.DirectionalLight("#fefefe", 1.2);
-        var pointLight = new THREE.PointLight("#ffffff", 0.5);
+        var light = new THREE.DirectionalLight("#fefefe", 1.5);
+        var pointLight = new THREE.PointLight("#ffffff", 0.4);
         var pointLightBack = new THREE.PointLight("#ffffff", 0.5);
-        var ambientLight = new THREE.AmbientLight(0x222222, 1);
-        var hemisterialLight = new THREE.HemisphereLight("#00aafe", "#feaa00", 1.5);
+        var ambientLight = new THREE.AmbientLight(0x222222, 1.3);
+        var hemisterialLight = new THREE.HemisphereLight("#00aafe", "#feaa00", 1.8);
         light.position.set(5, 10, 7.5).normalize();
         pointLight.position.set(0, -40, 300);
         pointLightBack.position.set(0, -40, -100);
@@ -101,7 +106,11 @@ const Model = () => {
         scene.add(hemisterialLight);
 
 
-        camera.position.z = 5;
+        // camera.position.z = 4.5;
+        // // camera.rotateY(90 * Math.PI / 180);
+        // // camera.rotation.y = 1.5;//90 * Math.PI / 180;
+        // // camera.rotation.y = (60 * Math.PI / 180);
+        // camera.rotation.set(Math.PI / -2, 0, 0);
 
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -145,10 +154,6 @@ const Model = () => {
     function animate() {
         requestAnimationFrame(animate);
 
-        // if (isModelLoaded === true && tableGeometry != undefined && plantGeometry != undefined) {
-        //     tableGeometry.rotation.y += 0.01;            
-        //     plantGeometry.rotation.y += 0.01;            
-        // }
         controls.update();
 
         renderer.render(scene, camera);
