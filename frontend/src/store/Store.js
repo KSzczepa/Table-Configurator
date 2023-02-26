@@ -7,7 +7,7 @@ import cartReducer from './cart';
 const store = configureStore({
     reducer: {
         counter: counterReducer,
-        scene: sceneReducer,
+        product: sceneReducer,
         cart: cartReducer
     }
 });
