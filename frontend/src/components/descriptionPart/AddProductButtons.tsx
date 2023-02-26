@@ -10,16 +10,10 @@ const AddProductButtons: React.FC<{}> = () => {
         product: {texture: string, itemsCounter: number}
     }
 
-    interface CartState {
-        cart: {products: {quantity: number, variant: string}[]}
-    }
-
-    const cartSelector = (state: CartState) => state.cart;
     const productSelector = (state: ProductState) => state.product;
 
     
     const dispatch = useDispatch();
-    const cart = useSelector(cartSelector).products;
     const product = useSelector(productSelector);
 
     const incrementHandler = () => {

@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-const initialCartState = {products: [], isEmpty: true, totalItems: 0};
+const initialCartState = {products: [], isEmpty: true, totalItems: 0, totalPrice: 0};
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -10,7 +10,7 @@ const cartSlice = createSlice({
 
             if (!state.isEmpty) {
                 const finded = state.products.findIndex(val => val.variant === action.payload.variant);
-                if (finded != -1) {
+                if (finded !== -1) {
                     state.products[finded].quantity += action.payload.quantity;
                     state.totalItems += action.payload.quantity;
                     return;

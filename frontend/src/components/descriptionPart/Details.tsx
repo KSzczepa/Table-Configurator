@@ -1,4 +1,4 @@
-import { deflate } from 'zlib';
+
 import classes from './Details.module.css';
 
 const Details: React.FC<{code: string}> = (props) => {
