@@ -20,3 +20,37 @@
     position: inherit;
     margin-left: 5rem;
 }
+
+.font-basket {
+    border-style: solid;
+    float: left;
+    border-radius: 20px;
+    position: fixed;
+    top: 1.5rem;
+    right: 8rem;
+    border-width: 1px;
+    height: 46px;
+    background-color: #b1b9ce82;
+}
+
+.font-basket p {
+    float: left;
+    margin-top: 0.7rem;
+    margin-bottom: 1rem;
+    margin-left: 12px;
+    padding: 1px;
+    font-size: 18px;
+}
+
+.font-basket:hover {
+    background-color: #b1b9ce57;
+    cursor: pointer;
+}
+
+.font-basket i{
+    /* margin-top: 1.5em; */
+    /* margin-right: 5px; */
+    padding: 10px;
+    position: relative;
+    top: 2.5px;
+}
