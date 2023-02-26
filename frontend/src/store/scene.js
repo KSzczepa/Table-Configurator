@@ -2,19 +2,30 @@ import {createSlice} from '@reduxjs/toolkit';
 import Texture from '../assets/Textures';
 import { modelScene as scene } from '../assets/Scene';
 
-const initialSceneState = {texture: 'brown'};
+const initialProductState = {texture: 'brown', itemsCounter: 1};
 
-const sceneSlice = createSlice({
-    name: 'scene',
-    initialState: initialSceneState,
+const productSlice = createSlice({
+    name: 'product',
+    initialState: initialProductState,
     reducers: {
         changeTexture(state, action) {
             state.texture = action.payload;
             Texture.LoadTexture(scene, action.payload);
         },
+        increment(state) {
+            state.itemsCounter++;
+        },
+        decrement(state) {
+            if (state.itemsCounter > 1)
+            state.itemsCounter--;
+        },
+        setValue(state, action) {
+            if (action.payload > 0) 
+                state.itemsCounter = action.payload;
+        },
     }
 });
 
-// export const counterActions = counterSlice.actions;
-export default sceneSlice.reducer;
-export const tableActions = sceneSlice.actions;
+
+export default productSlice.reducer;
+export const productActions = productSlice.actions;
