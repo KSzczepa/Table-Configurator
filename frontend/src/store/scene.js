@@ -10,7 +10,6 @@ const sceneSlice = createSlice({
     reducers: {
         changeTexture(state, action) {
             state.texture = action.payload;
-            console.log(action.payload);
             Texture.LoadTexture(scene, action.payload);
         },
     }
