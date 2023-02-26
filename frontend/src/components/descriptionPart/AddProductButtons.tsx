@@ -1,15 +1,10 @@
 import classes from './AddProductButtons.module.css';
 
 import {useSelector, useDispatch} from 'react-redux';
-import { counterActions } from '../../store/counter';
 import { cartActions } from '../../store/cart';
 import { productActions } from '../../store/scene';
 
 const AddProductButtons: React.FC<{}> = () => {
-
-    interface CounterState {
-        counter: {counter: number}
-    }
 
     interface ProductState {
         product: {texture: string, itemsCounter: number}
@@ -19,13 +14,11 @@ const AddProductButtons: React.FC<{}> = () => {
         cart: {products: {quantity: number, variant: string}[]}
     }
 
-    const counterSelector = (state: CounterState) => state.counter;
     const cartSelector = (state: CartState) => state.cart;
     const productSelector = (state: ProductState) => state.product;
 
     
     const dispatch = useDispatch();
-    // const counter = useSelector(counterSelector).counter;
     const cart = useSelector(cartSelector).products;
     const product = useSelector(productSelector);
 
