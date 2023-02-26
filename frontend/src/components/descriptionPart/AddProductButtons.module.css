@@ -48,4 +48,5 @@
 
 .add:hover {
     background-color: #a40404;
+    cursor: pointer;
 }

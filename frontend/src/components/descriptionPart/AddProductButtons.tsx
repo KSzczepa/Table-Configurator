@@ -14,7 +14,6 @@ const AddProductButtons: React.FC<{}> = () => {
     
     const dispatch = useDispatch();
     const counter = useSelector(selectIsOn).counter;
-    // const counter: (state: CounterState) = useSelector(state => state.counter.counter); 
 
     const incrementHandler = () => {
         dispatch(counterActions.increment());
@@ -24,11 +23,15 @@ const AddProductButtons: React.FC<{}> = () => {
         dispatch(counterActions.decrement());
     }
 
+    const addProductToCart = () => {
+
+    }
+
     return <div className={classes.buttons}>
         <button className={classes.action} onClick={decrementHandler}>-</button>
         <button className={classes.quantity}>{counter}</button>
         <button className={classes.action} onClick={incrementHandler}>+</button>
-        <button className={classes.add}>ADD PRODUCT</button>
+        <button className={classes.add} onClick={addProductToCart}>ADD PRODUCT</button>
     </div>
 }
 
