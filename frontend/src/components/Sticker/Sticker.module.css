@@ -19,15 +19,16 @@
     padding-top: 1rem;
     position: inherit;
     margin-left: 5rem;
+    float:left;
 }
 
 .font-basket {
     border-style: solid;
     float: left;
     border-radius: 20px;
-    position: fixed;
+    position: relative;
     top: 1.5rem;
-    right: 8rem;
+    left: calc(100vw - 45%);
     border-width: 1px;
     height: 46px;
     background-color: #b1b9ce82;
@@ -51,6 +52,56 @@
     /* margin-top: 1.5em; */
     /* margin-right: 5px; */
     padding: 10px;
-    position: relative;
-    top: 2.5px;
+    /* position: sticky; */
 }
+
+.cartQuantity {
+    background-color: #d60000db;
+    width: fit-content;
+    /* width: 25px; */
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    border-radius: 20px;
+    position: relative;
+    left: 175px;
+    bottom: 50px;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #4d4f5257;
+}
+
+.cartQuantity .p{
+    position: relative;
+    right: 6px;
+    bottom: 22px;
+    
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.bump {
+    animation: bump 300ms ease-out;
+  }
+  
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.15);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
