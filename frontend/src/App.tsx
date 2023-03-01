@@ -5,37 +5,41 @@ import Model from './components/Model';
 import Box from './components/Box';
 import ItemHandlerBox from './components/descriptionPart/ItemHandlerBox';
 import Options from './components/textureOptions/Options';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import RootLayout from './pages/Root';
+import Cart from './components/Cart/Cart';
 
-import { Canvas } from "@react-three/fiber";
-import Cylinder3d from "./components/unnecessary/Cylinder";
-
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <RootLayout />,
+		// errorElement: <ErrorPage />,
+		children: [
+			{
+				path: '/cart', 
+				element: <Cart />
+			}
+		]
+	}
+]);
 
 
 function App() {
-	
 
-
-	return (
-		<div className="App">
-			<Sticker />
+	return <RouterProvider router={router} />;
+	// return (
+	// 	<div className="App">
+	// 		<Sticker />
 		
-			<Box>
-				<Model />
-			</Box>
-			<ItemHandlerBox />
-			<Options />
+	// 		<Box>
+	// 			<Model />
+	// 		</Box>
+	// 		<ItemHandlerBox />
+	// 		<Options />
 			
 				
-			{/* <section className='App-header'>
-				<Canvas>
-				<pointLight position={[10, 10, 10]} /> 
-				<ambientLight />
-				<Cylinder3d position={[-1.2, 0, 0]} wireframe={false} />
-				<Cylinder3d position={[1.2, 0, 0]} wireframe={false} />
-				</Canvas>
-			</section> */}
-		</div>
-	);
+	// 	</div>
+	// );
 }
 
 export default App;
