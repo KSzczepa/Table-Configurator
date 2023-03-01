@@ -22,6 +22,15 @@
     float:left;
 }
 
+.header a {
+  color: none;
+  text-decoration: none;
+}
+Link {
+  color: none;
+  text-decoration: none;
+}
+
 .font-basket {
     border-style: solid;
     float: left;

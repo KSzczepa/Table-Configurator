@@ -3,6 +3,7 @@ import '../fontello/css/fontello.css';
 
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
 const Sticker = () => {
 
@@ -38,6 +39,7 @@ const Sticker = () => {
 
     return (<div className={classes.header}>
         <h1>TabConfig</h1>
+        <Link to={`/cart`}>
         <div className={`${classes['font-basket']}`}>
             <p>Shop Cart</p>
             <i className="icon-basket" style={{ fontSize: '32px' }} />
@@ -47,6 +49,7 @@ const Sticker = () => {
             </div>}
             {/* <i className="icon-basket" style={{ fontSize: '20px' , marginRight: '10px'}} /> */}
         </div>
+        </Link>
     </div>);
 };
 
