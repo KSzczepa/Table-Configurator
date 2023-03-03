@@ -1,11 +1,33 @@
 import Modal from "../UI/Modal";
 import {Fragment} from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { cartActions } from "../../store/cart";
+import { useNavigate } from "react-router-dom";
+
 
 const Cart = () => {
 
+    const navigate = useNavigate();
+    
+    function navigateHandler() {
+        navigate('/');
+    };
+
+    const dispatch = useDispatch();
+
+    // interface CartState {
+    //     cart: { isCartVisible: boolean }
+    // }
+
+    // const cartSelector = (state: CartState) => state.cart;
+
+    // const isCartVisible = useSelector(cartSelector).isCartVisible;
+
     const onCloseCart = () => {
-        //to może być jakaś zewnętrzna fcn z propsów
+        dispatch(cartActions.onCloseCart());
+        navigateHandler();
     }
+
 
     const CartContent = <Fragment>
         <p>This is cart!</p>
