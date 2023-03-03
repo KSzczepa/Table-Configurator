@@ -1,16 +1,19 @@
 import classes from './Sticker.module.css';
 import '../fontello/css/fontello.css';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { cartActions } from '../../store/cart';
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
-const Sticker = () => {
+const Sticker = () => {    
 
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
 
+    const dispatch = useDispatch();
+
     interface CartState {
-        cart: { products: { quantity: number, variant: string }[], isEmpty: boolean, totalItems: number }
+        cart: { products: { quantity: number, variant: string }[], isEmpty: boolean, totalItems: number, isCartVisible: boolean }
     }
 
     const cartSelector = (state: CartState) => state.cart;
@@ -36,10 +39,14 @@ const Sticker = () => {
         };
     }, [totalCartItems]);
 
+    const onClickCart = () => {
+        dispatch(cartActions.onClickCart());
+    }
+
 
     return (<div className={classes.header}>
         <h1>TabConfig</h1>
-        <Link to={`/cart`}>
+        <Link to={`/cart`} onClick={onClickCart}>
         <div className={`${classes['font-basket']}`}>
             <p>Shop Cart</p>
             <i className="icon-basket" style={{ fontSize: '32px' }} />

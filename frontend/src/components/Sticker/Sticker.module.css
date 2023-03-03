@@ -23,12 +23,13 @@
 }
 
 .header a {
-  color: none;
   text-decoration: none;
 }
-Link {
-  color: none;
+
+
+a {
   text-decoration: none;
+  color: black;
 }
 
 .font-basket {
