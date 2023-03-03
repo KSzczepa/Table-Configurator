@@ -1,6 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-const initialCartState = {products: [], isEmpty: true, totalItems: 0, totalPrice: 0};
+
+const initialCartState = {products: [], isEmpty: true, totalItems: 0, totalPrice: 0, isCartVisible: false};
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -32,6 +33,12 @@ const cartSlice = createSlice({
         },
         setQuantityToDefault(state) {
 
+        },
+        onClickCart(state) {
+            state.isCartVisible = true;
+        },
+        onCloseCart(state) {
+            state.isCartVisible = false;
         },
     }
 });
