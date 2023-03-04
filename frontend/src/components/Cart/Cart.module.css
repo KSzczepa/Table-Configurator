@@ -1,0 +1,15 @@
+.cartContent {
+    /* float: left; */
+    
+}
+
+.header {
+    display: flex;
+    width: fit-content;
+    margin-left: 2rem;
+}
+
+.header h4 {
+    margin-left: 24rem;
+    margin-top: 1.7rem;
+}

@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { cartActions } from "../../store/cart";
 import { useNavigate } from "react-router-dom";
 
+import classes from './Cart.module.css';
+
+import Card from "../UI/Card";
 
 const Cart = () => {
 
@@ -14,14 +17,17 @@ const Cart = () => {
     };
 
     const dispatch = useDispatch();
+    
+    interface CartState {
+        cart: { products: { quantity: number, variant: string, price: number, code: string }[], isEmpty: boolean, totalItems: number, totalPrice: number, isCartVisible: boolean }
+    }
 
-    // interface CartState {
-    //     cart: { isCartVisible: boolean }
-    // }
+    const cartSelector = (state: CartState) => state.cart;
 
-    // const cartSelector = (state: CartState) => state.cart;
-
-    // const isCartVisible = useSelector(cartSelector).isCartVisible;
+    const isCartVisible = useSelector(cartSelector).isCartVisible;
+    const totalItems = useSelector(cartSelector).totalItems;
+    const totalPrice = useSelector(cartSelector).totalPrice;
+    const products = useSelector(cartSelector).products;
 
     const onCloseCart = () => {
         dispatch(cartActions.onCloseCart());
@@ -29,9 +35,23 @@ const Cart = () => {
     }
 
 
-    const CartContent = <Fragment>
-        <p>This is cart!</p>
-    </Fragment>
+    const CartContent = <div className = {classes.cartContent}>
+        <div className={classes.header}><h2>Your products</h2><h4>{totalItems} items</h4></div>
+        {products.map(item =>             
+            <Card>   
+                <div>       
+                    <span>Amazing wooden table</span><br/>
+                    <span>Color: {item.variant}</span><br/>
+                </div>  
+                <div>
+                    <button>-</button><span> {item.quantity} </span><button>+</button><br />
+                    <span>{item.price} PLN</span>
+                </div>
+            </Card>
+        )}
+        <h3>Total: {totalPrice} PLN</h3>
+        
+    </div>
 
     return <Modal onClose={onCloseCart}>
         {CartContent}
