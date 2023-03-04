@@ -7,7 +7,7 @@ import { productActions } from '../../store/scene';
 const AddProductButtons: React.FC<{}> = () => {
 
     interface ProductState {
-        product: {texture: string, itemsCounter: number}
+        product: {texture: string, itemsCounter: number, price: number, code: string}
     }
 
     const productSelector = (state: ProductState) => state.product;
@@ -27,7 +27,9 @@ const AddProductButtons: React.FC<{}> = () => {
     const addProductToCart = () => {
         const productsToBuy = {
             quantity: product.itemsCounter,
-            variant: product.texture
+            variant: product.texture,
+            price: product.price,
+            code: product.code
         }
         dispatch(cartActions.addProductToCart(productsToBuy));
         dispatch(productActions.setValue(1));
