@@ -26,7 +26,36 @@ const cartSlice = createSlice({
 
         },
         increaseProdQuantity(state, action) {
-            console.log(action.payload);
+            if (!state.isEmpty) {
+                const finded = state.products.findIndex(val => val.variant === action.payload);
+                if (finded !== -1) {
+                    state.products[finded].quantity += 1;
+                    state.totalItems +=1;
+                    state.totalPrice += state.products[finded].price;
+                }
+            }
+        },
+        decreaseProdQuantity(state, action) {
+            if (!state.isEmpty) {
+                const finded = state.products.findIndex(val => val.variant === action.payload);
+                if (finded !== -1) {
+                    state.totalItems -= 1;
+                    state.totalPrice -= state.products[finded].price;
+
+                    if (state.products[finded].quantity >= 2) {
+                        state.products[finded].quantity -= 1;                        
+                    }
+                    else {
+                        if (finded === 0)
+                            state.products.shift();
+                        state.products.splice(finded, finded);
+                        if (state.totalItems === 0)  {
+                            state.products.pop();
+                            state.isEmpty = true;
+                        }
+                    }
+                }
+            }
         },
         sendProductToDB(state, action) {
             // state.counter = state.counter + action.payload;

@@ -148,7 +148,6 @@ const Model = () => {
 
 
     if (isModelLoaded === true) {
-        console.log('model loaded');
         // Texture.LoadTexture(scene, tableTextures.orange);
 
         animate();
