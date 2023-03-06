@@ -76,7 +76,7 @@ const Model = () => {
 
                 scene.add(gltf.scene);
 
-
+                
                 loader.load('./models/plant/potted_plant_02_4k.gltf', function (gltf) {
 
                     const content = gltf.scene;
