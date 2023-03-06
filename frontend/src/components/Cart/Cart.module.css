@@ -77,3 +77,7 @@
     cursor: pointer;
     background-color: cornflowerblue;
 }
+
+.price {
+    margin-top: 5px;
+}

@@ -57,7 +57,7 @@ const Cart = () => {
                     <span> {item.quantity} </span>
                     <button onClick={increaseProdQuantity} id={item.variant}>+</button><br />
                 </div>
-                <span>{item.price} PLN</span>
+                <div className={classes.price}><span>{item.price} PLN</span></div>
             </div>
         </Card>
     ));
