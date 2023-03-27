@@ -3,6 +3,7 @@ import {Fragment} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { cartActions } from "../../store/cart";
 import { useNavigate } from "react-router-dom";
+import Cart2dModel from "./Cart2dModel";
 
 import classes from './Cart.module.css';
 
@@ -45,7 +46,8 @@ const Cart = () => {
     const productsInCart = (products.map(item =>             
         <Card key={item.code}>   
             <div className={classes.picture}>
-                <ImageLoader variant={item.variant}/>
+                {/* <ImageLoader variant={item.variant}/> */}
+                <Cart2dModel variant={item.variant}/>
             </div>
             <div className={classes.description}>       
                 <span>Amazing wooden table</span><br/>
