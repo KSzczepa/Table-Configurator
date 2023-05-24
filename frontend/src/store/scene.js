@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
-import Texture from '../assets/Textures';
-import { modelScene as scene } from '../assets/Scene';
+import Texture from '../util/Textures';
+import { modelScene as scene } from '../util/Scene';
 
 const DUMMY_VALUES = [
     {
