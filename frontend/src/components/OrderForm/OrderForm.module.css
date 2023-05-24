@@ -1,0 +1,19 @@
+.wrapper {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.element {
+    padding: 15px;
+}
+
+.submitBtn {
+    margin-top: 15px !important;
+    background-color: purple !important;
+    
+}
+
+.submitBtn:hover {
+    background-color: #a242a2 !important;
+}

@@ -1,0 +1,57 @@
+.buttons {
+    margin-top: 3rem;
+    font-size: 26px;
+}
+
+.action {
+    min-width: 1px !important;
+    background-color: #d3c5b5b0 !important;
+    color: black !important;
+    border-style: none;
+    height: 2.5rem;
+    font-size: 16px !important;
+    border-radius: 1px !important;
+    font-family: inherit !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 20px;
+}
+
+.action:hover {
+    cursor: pointer;
+    background-color: #d3c5b5f7 !important;
+}
+
+.quantity {
+    background-color: #d3c5b52e;
+    border-style: none;
+    height: 2.5rem;
+    width: 3rem;
+
+    margin-left: 5px;
+    margin-right: 5px;
+
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 1px;
+}
+
+.add {
+    background-color: #d60000db !important;
+    color: white !important;
+    border-style: none;
+    height: 2.5rem;
+    width: 180px;
+    border-radius: 4px;
+    font-family: inherit !important;
+    margin-left: 15px !important;
+    letter-spacing: 2px !important;
+
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+
+.add:hover {
+    background-color: #a40404 !important;
+    cursor: pointer;
+}

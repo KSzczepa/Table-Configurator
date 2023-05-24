@@ -1,0 +1,22 @@
+.box {
+    text-align: center;
+    /* font-style: italic; */
+    padding-left: 5rem;
+    padding-right: 10rem;
+    margin-top: 2.5rem;
+    letter-spacing: 2px;
+    /* margin-right: 2.5rem; */
+}
+
+.title {
+    font-size: 28px;
+    margin-top: 25px;
+}
+
+.box p {
+    font-weight: 700;
+}
+
+.price {
+    color: red;
+}

@@ -1,0 +1,36 @@
+.main {
+    margin-top: 5rem;
+    display: grid;
+}
+
+.main div {
+    font-style: normal;
+    font-size: 16px;
+    /* padding: 1.2px; */
+    font-weight: 600;
+    text-align: left;
+    min-width: 300px;
+    
+}
+
+.main .name {
+    margin-left: calc(10%);
+    float: left;
+    width: calc(50%);
+}
+
+.main .number {
+   text-align: right;
+   width: calc(30%);
+   margin-right: calc(10%);
+   float: left;
+}
+
+.dark {
+    background-color: #d3c5b52e;
+    float: none;
+}
+
+.light {
+    float: none;
+}
