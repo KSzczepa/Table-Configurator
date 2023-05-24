@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import Texture from '../../assets/Textures';
+import Texture from '../../util/Textures';
 
 
 const Cart2dModel: React.FC<{variant: string}> = (props) => {

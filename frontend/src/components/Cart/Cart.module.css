@@ -43,41 +43,28 @@
     margin-top: 10px;
 }
 
-.quantity {
-    margin-left: 10px;
-}
 
-.quantity button {
-    height: 20px;
-    width: 20px;
-    border-radius: 10px;
-    border-style: none;
-    background-color: #6495ed82;
-}
-
-.quantity button:hover {
-    background-color: #6495edd4;
-    cursor: pointer;
-}
 
 .summary button {
     margin-left: 7.5rem;
     margin-top: 1.5rem;
     height: 40px;
     width: 120px;
-    border-radius: 20px;
-    border-style: none;
-    background-color: #6495edd4;
-    font-size: 1.17em;
+    border-radius: 15px;
+    /* border-style: none; */
+    /* background-color: #155ddd; */
+    letter-spacing: 3px;
+    /* font-size: 1.17em; */
     font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
+    /* color: inherit; */
 }
 
-.summary button:hover {
+/* .summary button:hover {
     cursor: pointer;
-    background-color: cornflowerblue;
-}
+    background-color: #174ba7d4;
+} */
 
 .price {
     margin-top: 5px;
+    text-align: center;
 }
