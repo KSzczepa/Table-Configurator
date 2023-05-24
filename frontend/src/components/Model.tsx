@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-import Texture from '../assets/Textures';
+import Texture from '../util/Textures';
 
-import {modelScene} from '../assets/Scene';
+import {modelScene} from '../util/Scene';
+import { tableAvailableColors } from '../types/tableAvailableColorsType';
+import { CircularProgress } from '@mui/material';
 
 
 //renderer
@@ -34,15 +36,9 @@ const Model = () => {
         setIsModelLoaded(state);
     }
 
-    type tabT = {
-        brown: string,
-        white: string,
-        grey: string,
-        orange: string,
-        purple: string
-    };
+    
 
-    const tableTextures: tabT = {
+    const tableTextures: tableAvailableColors = {
         brown: 'brown',
         white: 'white',
         grey: 'grey',
@@ -145,7 +141,6 @@ const Model = () => {
 
         renderer.render(scene, camera);
     };
-
 
     if (isModelLoaded === true) {
         // Texture.LoadTexture(scene, tableTextures.orange);
