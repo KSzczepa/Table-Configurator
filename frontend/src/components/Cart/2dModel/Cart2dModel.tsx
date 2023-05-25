@@ -67,7 +67,6 @@ const Cart2dModel: React.FC<{variant: string}> = (props) => {
                 }
     
                 animate();
-                console.log(scene.children);
     
             }, undefined, function ( error ) {    
             console.error( error );    

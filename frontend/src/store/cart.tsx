@@ -49,7 +49,6 @@ const cartSlice = createSlice({
         },
         increaseProdQuantity(state, action) {
             if (!state.isEmpty) {
-                console.log(action.payload);
                 const finded = state.products.findIndex(val => val.variant === action.payload);
                 if (finded !== -1) {
                     state.products[finded].quantity += 1;

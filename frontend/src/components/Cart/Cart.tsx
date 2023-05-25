@@ -44,7 +44,6 @@ const Cart = () => {
     }
 
     const decreaseProdQuantity = (event: any) => {
-        console.log(event.target.id);
         dispatch(cartActions.decreaseProdQuantity(event.target.id));
     }
 
