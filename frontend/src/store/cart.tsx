@@ -1,7 +1,29 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
+interface cartStateInterface {
+    products: productDescription[];
+    isEmpty: boolean;
+    totalItems: number;
+    totalPrice: number;
+    isCartVisible: boolean;
+    isOrderFormVisible: boolean;
+}
 
-const initialCartState = {products: [], isEmpty: true, totalItems: 0, totalPrice: 0, isCartVisible: false, isOrderFormVisible: false};
+const initialCartState: cartStateInterface = {
+    products: [],
+    isEmpty: true,
+    totalItems: 0,
+    totalPrice: 0,
+    isCartVisible: false,
+    isOrderFormVisible: false
+};
+
+type productDescription = {
+    quantity: number;
+    variant: string;
+    price: number;
+    code: string;
+}
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -12,17 +34,17 @@ const cartSlice = createSlice({
             state.totalItems += action.payload.quantity;
 
             if (!state.isEmpty) {
-                const finded = state.products.findIndex(val => val.variant === action.payload.variant);
+                const finded = state.products.findIndex(val => (val as productDescription).variant === action.payload.variant);
                 if (finded !== -1) {
                     state.products[finded].quantity += action.payload.quantity;
                     return;
                 }
             }
-            
-            
+
+
             state.products.push(action.payload);
             state.isEmpty = false;
-            
+
 
         },
         increaseProdQuantity(state, action) {
@@ -30,7 +52,7 @@ const cartSlice = createSlice({
                 const finded = state.products.findIndex(val => val.variant === action.payload);
                 if (finded !== -1) {
                     state.products[finded].quantity += 1;
-                    state.totalItems +=1;
+                    state.totalItems += 1;
                     state.totalPrice += state.products[finded].price;
                 }
             }
@@ -43,13 +65,13 @@ const cartSlice = createSlice({
                     state.totalPrice -= state.products[finded].price;
 
                     if (state.products[finded].quantity >= 2) {
-                        state.products[finded].quantity -= 1;                        
+                        state.products[finded].quantity -= 1;
                     }
                     else {
                         if (finded === 0)
                             state.products.shift();
                         state.products.splice(finded, finded);
-                        if (state.totalItems === 0)  {
+                        if (state.totalItems === 0) {
                             state.products.pop();
                             state.isEmpty = true;
                         }
