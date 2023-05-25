@@ -1,7 +1,6 @@
-import { orderFormFields } from "../types/orderFormFieldsTypes";
+import { orderCompleteData } from "../types/orderCompleteDataType";
 
-
-export async function postFormData(data: orderFormFields, url: string) {
+export async function postFormData(data: orderCompleteData, url: string) {
 
     const response = await fetch(url, {
         method: 'POST',
