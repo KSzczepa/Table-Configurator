@@ -2,13 +2,17 @@ import styles from './OrderForm.module.css';
 
 import { Button, Container, FormControl, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { orderFormFields } from "../../types/orderFormFieldsTypes";
+import { userDataInterface } from "../../types/userData4FormInterface";
 import SendIcon from '@mui/icons-material/Send';
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import { toastsHandler } from '../../shared/toastHandler';
 import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../store/cart';
+import { productDescription } from '../../types/productDescriptionType';
+import { postFormData } from '../../shared/postRequestHandler';
+import { userDataReducer } from './userDataReducer/userDataReducer';
+import { UPDATE_NAME, UPDATE_SURNAME, UPDATE_EMAIL } from '../../globalVariables/submitActions';
 
 const OrderForm = () => {
 
@@ -18,8 +22,16 @@ const OrderForm = () => {
         navigate(path);
     };
 
+
+    const [userData, dispatchUserDataReducer] = useReducer(userDataReducer, {
+        name: undefined,
+        surname: undefined,
+        email: undefined
+    });
+
     const { register, handleSubmit, control, formState: { errors }, setValue, reset, resetField } =
-        useForm<orderFormFields>({ mode: "onTouched" });
+        useForm<userDataInterface>({ mode: "onTouched" });
+
 
     const dispatch = useDispatch();
 
@@ -27,8 +39,12 @@ const OrderForm = () => {
         isOrderFormVisible: boolean
     }
 
-    const orderFormSelector = (state: OrderVisibilityState) => state.isOrderFormVisible;   
-    const isOrderFormVisible = useSelector(orderFormSelector);
+    interface CartStateInterface {
+        cart: { products: productDescription[] }
+    }
+
+    const isOrderFormVisible = useSelector((state: OrderVisibilityState) => state.isOrderFormVisible);
+    const cartProducts = useSelector((state: CartStateInterface) => state.cart).products;
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -36,8 +52,14 @@ const OrderForm = () => {
         setIsSubmitting(true);
 
         toastsHandler('PENDING');
+        const dataToPost = {
+            userData: userData,
+            orderedProducts: cartProducts
+        }
+        console.log(dataToPost);
 
         //Now we need to send post request and send an email
+        // const response = postFormData(cartProducts, url);
 
         setIsSubmitting(false);
         dispatch(cartActions.onSubmitForm());
@@ -69,6 +91,7 @@ const OrderForm = () => {
                                     message: "The name must contain at least 3 characters"
                                 },
                             })}
+                            onChange={(event) => { dispatchUserDataReducer({ type: UPDATE_NAME, payload: event.target.value }) }}
                         />
                     </FormControl>
                 </div>
@@ -86,6 +109,7 @@ const OrderForm = () => {
                                     message: "The surname must contain at least 3 characters"
                                 },
                             })}
+                            onChange={(event) => { dispatchUserDataReducer({ type: UPDATE_SURNAME, payload: event.target.value }) }}
                         />
                     </FormControl>
                 </div>
@@ -103,6 +127,7 @@ const OrderForm = () => {
                                     message: "The e-mail must contain at least 3 characters"
                                 },
                             })}
+                            onChange={(event) => { dispatchUserDataReducer({ type: UPDATE_EMAIL, payload: event.target.value }) }}
                         />
                     </FormControl>
                 </div>
