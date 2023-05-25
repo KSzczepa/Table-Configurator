@@ -54,10 +54,10 @@ const Sticker = () => {
 
         </Link>
         {!isCartEmpty &&
-        <PanoramaFishEyeIcon className={classes.totalItems}>{totalCartItems}</PanoramaFishEyeIcon>
-            // <div className={classes.btnClasses}>
-            //     <p className={classes.p}>{totalCartItems}</p>
-            // </div>
+        // <PanoramaFishEyeIcon className={classes.totalItems}>{totalCartItems}</PanoramaFishEyeIcon>
+            <div className={classes.totalItems}>
+                <p className={classes.p}>{totalCartItems}</p>
+            </div>
         }
     </div>);
 };

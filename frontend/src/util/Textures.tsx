@@ -39,7 +39,7 @@ export default class Texture {
     static LoadTexture(scene: THREE.Scene, texture: string) {
         const tableGeometry = scene.getObjectByName('table');
 
-        if (tableGeometry != undefined)
+        if (tableGeometry !== undefined)
             tableGeometry.traverse(function (child) {
                 if (child instanceof THREE.Mesh) {
                     child.material.map = Texture.#GetURL(texture);

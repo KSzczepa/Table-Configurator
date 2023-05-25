@@ -3,14 +3,11 @@ import {Fragment, useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { cartActions } from "../../store/cart";
 import { useNavigate } from "react-router-dom";
-import Cart2dModel from "./Cart2dModel";
+import Cart2dModel from "./2dModel/Cart2dModel";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-
 import classes from './Cart.module.css';
-
 import Card from "../UI/Card";
-import ImageLoader from "./ImageLoader";
 import { Button, IconButton } from "@mui/material";
 import OrderForm from "../OrderForm/OrderForm";
 
@@ -47,6 +44,7 @@ const Cart = () => {
     }
 
     const decreaseProdQuantity = (event: any) => {
+        console.log(event.target.id);
         dispatch(cartActions.decreaseProdQuantity(event.target.id));
     }
 
@@ -58,7 +56,6 @@ const Cart = () => {
     const productsInCart = (products.map(item =>             
         <Card key={item.code}>   
             <div className={classes.picture}>
-                {/* <ImageLoader variant={item.variant}/> */}
                 <Cart2dModel variant={item.variant}/>
             </div>
             <div className={classes.description}>       
@@ -67,9 +64,9 @@ const Cart = () => {
             </div>  
             <div className={classes.value}>
                 <div className={classes.quantity}>
-                    <IconButton onClick={decreaseProdQuantity} id={item.variant}><RemoveIcon /></IconButton>
+                    <IconButton onClick={decreaseProdQuantity} id={item.variant}><RemoveIcon id={item.variant}/></IconButton>
                     <span> {item.quantity} </span>
-                    <IconButton onClick={increaseProdQuantity} id={item.variant}><AddIcon /></IconButton>
+                    <IconButton onClick={increaseProdQuantity} id={item.variant}><AddIcon id={item.variant}/></IconButton>
                 </div>
                 <div className={classes.price}><span>{item.price} PLN</span></div>
             </div>
@@ -79,7 +76,7 @@ const Cart = () => {
 
     const CartContent = <div className = {classes.cartContent}>
         <div className={classes.header}><h2>Your products</h2><h4>{totalItems} items</h4></div>
-        {totalItems > 0 ? productsInCart : <p>Your shopping cart is empty!</p>}
+        {totalItems > 0 ? productsInCart : <div className = {classes.emptyMsg}>Your shopping cart is empty!</div>}
         {totalItems > 0 ? <div className={classes.summary}><h3>Total: {totalPrice} PLN</h3><Button variant="contained" onClick={onClickOrderHandler}>Order</Button></div> : ''}        
     </div>
 

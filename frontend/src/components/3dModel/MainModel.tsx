@@ -2,11 +2,8 @@ import * as THREE from 'three';
 import { useEffect, useRef, useState } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-
-import Texture from '../util/Textures';
-
-import { modelScene } from '../util/Scene';
-import { tableAvailableColors } from '../types/tableAvailableColorsType';
+import { modelScene } from '../../util/Scene';
+import { tableAvailableColors } from '../../types/tableAvailableColorsType';
 import { CircularProgress } from '@mui/material';
 
 import styles from './MainModel.module.css';
@@ -41,8 +38,8 @@ const MainModel: React.FC<{imgSize: CanvaSize}>  = (props) => {
         const scene = modelScene;
         scene.background = new THREE.Color('#fefefe');
 
-        const width = props.imgSize.width * 0.5;//750; 
-        const heigth = props.imgSize.heigth * 0.5;//350;
+        const width = props.imgSize.width * 0.5;
+        const heigth = props.imgSize.heigth * 0.5;
 
         renderer.setSize(width, heigth);
 

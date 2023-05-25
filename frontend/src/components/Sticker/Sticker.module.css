@@ -49,10 +49,7 @@ a {
 
 
 .font-basket i{
-    /* margin-top: 1.5em; */
-    /* margin-right: 5px; */
     padding: 10px;
-    /* position: sticky; */
 }
 
 .btnClasses {
@@ -76,17 +73,21 @@ a {
   position: absolute;
   top: 15px;
   right: 58px;
-  background-color: #d60000db;
+  background-color: #a02222e5;
+  border-radius: 50px;
+  height: 22px;
+  width: 22px;
+  text-align: center;
+  align-items: center;
+  animation: bump 300ms ease-out;
 }
-/* 
-.btnClasses .p{
-    position: relative;
-    right: 6px;
-    bottom: 22px;
-    
-    font-size: 18px;
-    font-weight: 550;
-} */
+
+.p {
+  position: relative;
+  top: -15px;
+  animation: bump 300ms ease-out;
+}
+
 
 
 .bump {

@@ -1,5 +1,5 @@
-import AddProductButtons from './AddProductButtons';
-import Details from './Details';
+import AddProductButtons from '../UI/AddProductButtons';
+import ProductDimensionsDetails from '../ProductDimensionDetails/ProductDimensionsDetails';
 import classes from './ProductSpecs.module.css';
 import { useSelector } from 'react-redux';
 
@@ -31,7 +31,7 @@ const DUMMY_VALUES = [
     },
 ]
 
-const ItemHandlerBox = () => {
+const ProductSpecsBox = () => {
 
     interface ProductState {
         product: {texture: string, itemsCounter: number}
@@ -52,8 +52,8 @@ const ItemHandlerBox = () => {
         <p>Model: Katrina5</p>
         <p className={classes.price}>{productPrice + ' PLN'}</p>
         <AddProductButtons />
-        <Details code={productCode}/>
+        <ProductDimensionsDetails code={productCode}/>
     </div>
 }
 
-export default ItemHandlerBox;
+export default ProductSpecsBox;

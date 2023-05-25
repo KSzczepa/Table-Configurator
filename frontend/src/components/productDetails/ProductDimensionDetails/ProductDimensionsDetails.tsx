@@ -1,7 +1,7 @@
 
-import classes from './Details.module.css';
+import classes from './ProductDimensionsDetails.module.css';
 
-const Details: React.FC<{code: string}> = (props) => {
+const ProductDimensionsDetails: React.FC<{code: string}> = (props) => {
     return <div className={classes.main}>
         <div className={classes.dark}>
             <p className={classes.name}>Width</p>
@@ -22,4 +22,4 @@ const Details: React.FC<{code: string}> = (props) => {
     </div>
 }
 
-export default Details;
+export default ProductDimensionsDetails;

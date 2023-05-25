@@ -1,15 +1,12 @@
 import { Fragment, useEffect, useState } from 'react';
-// import { Outlet, useNavigation } from 'react-router-dom';
 import Sticker from '../components/Sticker/Sticker';
-import Model from '../components/Model';
-import ItemHandlerBox from '../components/productDetails/ProductSpecs';
+import ItemHandlerBox from '../components/productDetails/ProductSpecsMainComponent/ProductSpecs';
 import Options from '../components/texturesUI/TextureSelector';
 import Cart from '../components/Cart/Cart';
 import { useSelector, useDispatch } from 'react-redux';
 import { cartActions } from '../store/cart';
-import MainModel from '../components/MainModel';
+import MainModel from '../components/3dModel/MainModel';
 import { Container, Row, Col } from 'react-bootstrap';
-import { ToastContainer } from 'react-toastify-redux';
 
 const RootLayout = () => {
     // const navigation = useNavigation();
@@ -40,9 +37,9 @@ const RootLayout = () => {
 
     const isCartVisible = useSelector(cartSelector).isCartVisible;
 
-    const onCloseCart = () => {
-        dispatch(cartActions.onCloseCart());
-    }
+    // const onCloseCart = () => {
+    //     dispatch(cartActions.onCloseCart());
+    // }
 
     return <Fragment>
         <Sticker />

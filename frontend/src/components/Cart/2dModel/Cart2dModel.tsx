@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import Texture from '../../util/Textures';
+import Texture from '../../../util/Textures';
 
 
 const Cart2dModel: React.FC<{variant: string}> = (props) => {
@@ -15,8 +15,8 @@ const Cart2dModel: React.FC<{variant: string}> = (props) => {
         // const camera = new THREE.OrthographicCamera(width/-2, width/2, heigth/2, heigth/-2, 1, 1000);
         const camera = new THREE.OrthographicCamera(-2, 2, 2, -1, 0.1, 1000);
     
-        const width = 90; //800;
-        const heigth = 60; //600;
+        const width = 100; //800;
+        const heigth = 70; //600;
     
             const loader = new GLTFLoader();    
             loader.load('./models/wooden_table/wooden_table_02_4k.gltf', function ( gltf ) {

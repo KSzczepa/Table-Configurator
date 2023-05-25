@@ -1,11 +1,9 @@
 import classes from './AddProductButtons.module.css';
 
 import {useSelector, useDispatch} from 'react-redux';
-import { cartActions } from '../../store/cart';
-import { productActions } from '../../store/scene';
-import { Button, IconButton } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import { cartActions } from '../../../store/cart';
+import { productActions } from '../../../store/scene';
+import { Button } from '@mui/material';
 
 const AddProductButtons: React.FC<{}> = () => {
 
