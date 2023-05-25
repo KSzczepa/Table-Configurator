@@ -10,6 +10,7 @@ import classes from './Cart.module.css';
 import Card from "../UI/Card";
 import { Button, IconButton } from "@mui/material";
 import OrderForm from "../OrderForm/OrderForm";
+import { cartStateInterface } from "../../types/cartActualStateInterface";
 
 const Cart = () => {
 
@@ -23,7 +24,7 @@ const Cart = () => {
     const dispatch = useDispatch();
     
     interface CartState {
-        cart: { products: { quantity: number, variant: string, price: number, code: string }[], isEmpty: boolean, totalItems: number, totalPrice: number, isCartVisible: boolean, isOrderFormVisible: boolean }
+        cart: cartStateInterface
     }
 
     const cartSelector = (state: CartState) => state.cart;
