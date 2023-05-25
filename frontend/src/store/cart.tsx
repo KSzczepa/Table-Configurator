@@ -1,13 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-interface cartStateInterface {
-    products: productDescription[];
-    isEmpty: boolean;
-    totalItems: number;
-    totalPrice: number;
-    isCartVisible: boolean;
-    isOrderFormVisible: boolean;
-}
+import { productDescription } from '../types/productDescriptionType';
+import { cartStateInterface } from '../types/cartActualStateInterface';
 
 const initialCartState: cartStateInterface = {
     products: [],
@@ -17,13 +10,6 @@ const initialCartState: cartStateInterface = {
     isCartVisible: false,
     isOrderFormVisible: false
 };
-
-type productDescription = {
-    quantity: number;
-    variant: string;
-    price: number;
-    code: string;
-}
 
 const cartSlice = createSlice({
     name: 'cart',
