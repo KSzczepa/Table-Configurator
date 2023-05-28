@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import Sticker from '../components/Sticker/Sticker';
-import ItemHandlerBox from '../components/productDetails/ProductSpecsMainComponent/ProductSpecs';
+import ProductSpecsBox from '../components/productDetails/ProductSpecsMainComponent/ProductSpecs';
 import Options from '../components/texturesUI/TextureSelector';
 import Cart from '../components/Cart/Cart';
 import { useSelector, useDispatch } from 'react-redux';
@@ -61,7 +61,7 @@ const RootLayout = () => {
                     </Col>
                     <Col style={{ width: '50%', float: 'left' }}>
                         <div id="itemDescription">
-                            <ItemHandlerBox />
+                            <ProductSpecsBox />
                         </div>
                     </Col>
                 </Row>
